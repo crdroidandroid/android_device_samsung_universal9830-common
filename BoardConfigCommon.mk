@@ -34,15 +34,15 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 BOARD_LOW_LATENCY_CAPTURE_DURATION := 20
 BOARD_USB_PLAYBACK_DURATION := 5
 BOARD_USE_MMAP_HW_VOLUME_CONTROL := true
-BOARD_USE_QUAD_MIC := true
-BOARD_USE_SEC_AUDIO_DYNAMIC_NREC := true
-BOARD_USE_SEC_AUDIO_PARAM_UPDATE := false
-BOARD_USE_SEC_AUDIO_RESAMPLER := true
-BOARD_USE_SEC_AUDIO_SAMSUNGRECORD := true
-BOARD_USE_SEC_AUDIO_SOUND_TRIGGER_ENABLED := true
-# BOARD_USE_SEC_AUDIO_SUPPORT_GAMECHAT_SPK_AEC := true
-BOARD_USE_SEC_AUDIO_SUPPORT_LISTENBACK_DSPEFFECT := true
-BOARD_USE_USB_OFFLOAD := true
+$(call soong_config_set,exynos_audio,PROXY_LIBRARY,//device/samsung/universal9830-common:libaudioproxy)
+$(call soong_config_set,universal9830AudioVars,use_sec_audio_dynamic_nrec,true)
+$(call soong_config_set,universal9830AudioVars,use_sec_audio_param_update,false)
+$(call soong_config_set,universal9830AudioVars,use_sec_audio_resampler,true)
+$(call soong_config_set,universal9830AudioVars,use_sec_audio_samsungrecord,true)
+$(call soong_config_set,universal9830AudioVars,use_sec_audio_sound_trigger_enabled,true)
+$(call soong_config_set,universal9830AudioVars,use_sec_audio_support_listenback_dspeffect,true)
+$(call soong_config_set,universal9830AudioVars,use_soundtrigger_hal,true)
+$(call soong_config_set,universal9830AudioVars,use_usb_offload,true)
 
 # Camera
 $(call soong_config_set,samsungCameraVars,usage_64bit,true)
@@ -122,6 +122,7 @@ TARGET_KERNEL_SOURCE := kernel/samsung/universal9830
 
 # Keymaster
 TARGET_KEYMASTER_VARIANT := samsung
+$(call soong_config_set,samsungVars,target_keymaster4_library,//vendor/samsung/universal9830-common:libskeymaster4device)
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
@@ -179,10 +180,9 @@ include device/samsung_slsi/sepolicy/sepolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 
 # SoundTrigger
-BOARD_SOUNDTRIGGER_CONFIG_PATH := $(COMMON_PATH)/configs/sthal
-BOARD_USE_SOUNDTRIGGER_HAL := true
-BOARD_USE_SOUNDTRIGGER_HAL_2_3 := true
-BOARD_USE_SOUNDTRIGGER_HAL_MMAP := true
+$(call soong_config_set,exynos_st,soundtrigger_config_path,$(COMMON_PATH)/configs/sthal)
+$(call soong_config_set,exynos_st, use_soundtrigger_hal_2_3,true)
+$(call soong_config_set,exynos_st, use_soundtrigger_hal_mmap,true)
 
 # USB
 $(call soong_config_set,samsungUsbGadgetVars,gadget_name,10e00000.dwc3)

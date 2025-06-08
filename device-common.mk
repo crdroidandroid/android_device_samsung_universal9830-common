@@ -27,7 +27,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio-impl \
     audio.bluetooth.default \
-    audio.primary.exynos990 \
+    audio.primary.universal990 \
     audio.r_submix.default \
     SamsungDAP
 
@@ -115,7 +115,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
-    gralloc.exynos990 \
+    gralloc.universal990 \
     libion
 
 # Health
@@ -273,7 +273,7 @@ PRODUCT_COPY_FILES += \
 
 # PowerShare
 PRODUCT_PACKAGES += \
-    vendor.lineage.powershare@1.0-service.samsung
+    vendor.lineage.powershare-service.samsung
 
 # Proca
 PRODUCT_PACKAGES += \
@@ -342,12 +342,15 @@ PRODUCT_SOONG_NAMESPACES += \
     $(COMMON_PATH) \
     hardware/google/interfaces \
     hardware/google/pixel \
-    hardware/samsung
+    hardware/samsung \
+    hardware/samsung_slsi-linaro/exynos/gralloc/gralloc3 \
+    hardware/samsung_slsi-linaro/exynos/libaudio/audiohal_comv1 \
+    hardware/samsung_slsi-linaro/exynos/libaudio/sthal
 
 # SoundTrigger
 PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.3-impl:32 \
-    sound_trigger.primary.exynos990
+    sound_trigger.primary.universal990
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
@@ -401,3 +404,6 @@ $(call inherit-product, hardware/samsung_slsi-linaro/config/config.mk)
 
 # Call the proprietary setup
 $(call inherit-product, vendor/samsung/universal9830-common/universal9830-common-vendor.mk)
+
+# Lineage props
+AB_OTA_UPDATER := false

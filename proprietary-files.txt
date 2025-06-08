@@ -8,6 +8,7 @@ vendor/lib/lib_soundaliveresampler.so
 vendor/lib64/libSamsungPostProcessConvertor.so
 vendor/lib64/lib_SoundAlive_SRC384_ver320.so
 vendor/lib64/lib_soundaliveresampler.so
+vendor/lib/libfloatingfeature.so
 
 # Audio (Dolby Atmos)
 vendor/lib/libprofileparamstorage.so

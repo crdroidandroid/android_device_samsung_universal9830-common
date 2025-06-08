@@ -5,4 +5,8 @@
 //
 
 soong_namespace {
+	imports: [
+        "hardware/samsung_slsi-linaro/interfaces",
+        "vendor/samsung/universal9830-common"
+	],
 }

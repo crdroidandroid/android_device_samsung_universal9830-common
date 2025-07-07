@@ -129,11 +129,11 @@ BOARD_USES_METADATA_PARTITION := true
 
 # Lineage health
 $(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/power_supply/battery/charging_enabled)
-TARGET_HEALTH_CHARGING_CONTROL_CHARGING_ENABLED := 1
-TARGET_HEALTH_CHARGING_CONTROL_CHARGING_DISABLED := 0
-TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := true
-TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_TOGGLE := true
-TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_DEADLINE := false
+$(call soong_config_set,lineage_health,charging_control_charging_enabled,1)
+$(call soong_config_set,lineage_health,charging_control_charging_disabled,0)
+$(call soong_config_set,lineage_health,charging_control_supports_bypass,true)
+$(call soong_config_set,lineage_health,charging_control_supports_toggle,true)
+$(call soong_config_set,lineage_health,charging_control_supports_deadline,false)
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 61865984

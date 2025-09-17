@@ -5,11 +5,6 @@
         "branch": "16.0"
     },
     {
-        "repository": "crdroidandroid/android_device_samsung_universal9830-common",
-        "target_path": "device/samsung/universal9830-common",
-        "branch": "16.0"
-    },
-    {
         "repository": "crdroidandroid/android_kernel_samsung_universal9830",
         "target_path": "kernel/samsung/universal9830",
         "branch": "16.0"

@@ -145,6 +145,3 @@
 
 # AIDL touch
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch-service\.samsung          u:object_r:hal_lineage_touch_default_exec:s0
-
-# Lineage LiveDisplay
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay-service\.samsung-exynos	u:object_r:hal_lineage_livedisplay_exynos_exec:s0

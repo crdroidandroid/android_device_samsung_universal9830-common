@@ -12,8 +12,6 @@ allow vendor_init cgroup:file r_file_perms;
 
 allow vendor_init {
     proc_dirty
-    proc_dirty_background_bytes
-    proc_dirty_bytes
     proc_swappiness
 }:file rw_file_perms;
 

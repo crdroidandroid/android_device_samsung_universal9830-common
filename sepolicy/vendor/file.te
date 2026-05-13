@@ -18,8 +18,6 @@ type pdp_efs_file, fs_type;
 type ssm_efs_file, fs_type;
 
 # proc types
-type proc_dirty_background_bytes, fs_type, proc_type;
-type proc_dirty_bytes, fs_type, proc_type;
 type proc_swappiness, fs_type, proc_type;
 
 # sysfs types
